@@ -15,6 +15,7 @@
 
 ## 🛠 Tech Stack
 * **Engine:** Unity
+* **참고AI:** Gemini CLI
 * **Language:** C#
 * **Graphics:** 3D 오브젝트를 탑다운으로 보는 방식
 * **Version Control:** Git / GitHub Desktop
