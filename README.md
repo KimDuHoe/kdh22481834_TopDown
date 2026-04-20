@@ -21,8 +21,18 @@
 * **Version Control:** Git / GitHub Desktop
 
 ## 🧠 주요 구현 기술 (Technical Highlights)
-* **Object Pooling:** 대량의 몬스터 스폰 시 발생하는 메모리 과부하를 방지하기 위해 오브젝트 풀링 시스템을 직접 구현하여 성능을 최적화했습니다.
-* **Monster:** 추격형 몬스터와 고정형 포탑 
+### 1. 시스템 아키텍처 및 최적화
+* **Singleton Pattern:** `GameManager`를 싱글톤으로 설계하여 게임의 전체 상태(Timer, Spawn, GameState)를 전역에서 안정적으로 관리하고 데이터 무결성을 유지 (싱글톤:한명의 관리자)
+* **메모리 최적화:** 모든 투사체와 소환된 오브젝트에 Destroy를 적용하여 메모리 누수 방지
+
+### 2. 정교한 물리 및 수학적 연산
+* **Raycasting 조준 시스템:** 마우스의 2D 스크린 좌표를 3D 월드 좌표로 변환
+* **Vector & Quaternion:** `FromToRotation` 및 `LookAt` 함수를 사용하여 오브젝트의 방향성 계산 및 투사체 설정
+* **Rigidbody 넉백효과:** `AddForce`를 이용한 넉백(Knockback) 시스템을 구현
+
+### 3. 비동기 로직 및 AI 설계
+* **Coroutine:** 피격 시 깜빡임 효과(`BlinkEffect`) 및 상태 복구 로직을 `Coroutine:실행 중단했다 중단한 시점에서 다시 시작`으로 처리하여 메인 루프의 성능 저하 없이 자연스러운 비동기 연출
+* **Monster:** 추격형(Chaser)과 고정 사격형(Turret)
 
 ---
 
